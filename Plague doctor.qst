@@ -1,0 +1,1207 @@
+:menu
+pln <center><b>Чумной доктор.</b></center>
+btn prol1, Начать
+btn author, Об игре
+end
+
+:author
+pln Герой игры - главный врач больницы маленького города, в который он попадает против своей воли. Больница приносит небольшую прибыль. Используйте деньги с умом. От этого будет зависеть, что произойдёт с городом и лично с вами.
+pln Автор - Шушкарт.
+btn menu, В главное меню
+end
+
+:prol1
+pln На окне были лишь стальные прутья, и холодный зимний воздух свободно проходил внутрь, делая пребывание в камере еще менее приятным. Единственный заключенный спал на полу, его руки были прикованы к стенам длинными цепями.
+pln Тишину прервал металлический лязг, и дверь камеры распахнулась:
+pln - Эй, к тебе тут гости – голос охранника эхом разносился среди каменных стен.
+pln Человек на полу не отреагировал. Охранник вышел за дверь и через несколько секунд вернулся с ведром воды.
+btn prol2, - Ты что творишь, не май месяц! 
+end
+
+:prol2
+pln Ледяной душ не лучший способ проснуться, но довольно действенный. Ухмыльнувшись, охранник покинул камеру. 
+pln - Прошу вас, господин, – послышалось в коридоре.
+pln Высокий человек в черном пальто вошел в камеру и, встав напротив заключенного, тихо сказал:
+pln - Господи, а ведь ты был уважаемым врачом. 
+pln - Я не сделал ничего плохого. 
+pln - Ты обесчестил дочку мэра. Ты в курсе что тебя хотят повесить завтра утром?
+pln Заключенный, дрожа от холода, молча посмотрел на гостя.
+pln - Тебе повезло, у меня есть хорошие друзья в столице, а у тебя есть такой хороший друг как я. Мне удалось смягчить наказание. Слышал про город Велнес? 
+btn prol3, - Немного
+end
+
+:prol3
+pln - Несколько лет назад, в южных землях, появился слух об источнике, который способен исцелить любые болезни. Рядом с его предполагаемым местонахождением был образован небольшой город, куда стекались больные с самыми разнообразными заболеваниями. Этот город одна большая эпидемия на карте нашего государства. Министерство построило там небольшую больницу, но найти главного врача для нее так и не смогло. Все врачи, естественно, отказались от этой затеи. Но у тебя нет другого выбора. Считай этой ссылкой.
+pln Рассказав это, человек в пальто развернулся к выходу.
+pln - И постарайся не умереть там от какой-нибудь заразы. Я вытащу тебя оттуда, но на это уйдет некоторое время.
+btn prol4, Далее
+end
+
+:prol4
+perdays=1
+permoney=100
+perlvlhp=0
+perhpbed=10
+permonyinc=50
+peregoend=0
+
+pln Повозка остановилась около старого здания, которому давно требовался ремонт. Рядом с дверью висела табличка с медицинскими символами. "И тут мне придется работать?" - выходя из повозки, обреченно вздохнул новоиспеченный главный врач.
+pln - Здравствуйте, господин доктор, - около входа, врача ожидала пожилая медсестра. – Проходите, я вам все покажу.
+pln После небольшой экскурсии по больнице, врач оказался в небольшом кабинете.
+pln - Вам нужно отдохнуть с дороги, а завтра займетесь делами. Вон та дверь ведет в спальню, - медсестра указала вперед.
+btn twhosp, Лечь спать
+end
+
+
+
+
+:endgameall
+if perenddgameguild=1 then goto endgameavent
+if peregoend=12000 then goto endgamegrejoe
+if perlvlhp=5 then goto endgamehospit
+if perenddgamechurch=1 then goto endgamechurch
+
+pln Город полностью захлестнула болезнь. Повсюду лежали трупы и бегали крысы. Люди запирались в домах и заколачивали окна в надежде спастись, но это не помогло. Через несколько дней все население города, вместе в персоналом больницы, было полностью уничтожено чумой.
+pln Конец.
+end
+
+:endgameavent
+pln Выйдя на улицу, врач встретил толпы людей стекающихся к гильдии искателей приключений. 
+pln - Куда все идут? - остановив одного мужчину, спросил врач.
+pln - Они нашли его! - радостно выкрикнул человек. - Источник, теперь мы спасены.
+pln Добравшись до гильдии, врач увидел, как всем желающим раздают сосуды с волшебной водой.
+pln 
+pln Спустя несколько дней в городе не осталось ни одного больного человека. На центральной площади был установлен огромный памятник героям нашедшим волшебный источник. Спустя полгода врач смог переехать обратно в столицу и начать жизнь заново.
+pln Конец.
+end
+
+:endgamevacc
+pln Лекарство против чумы оказалось весьма эффективно и буквально спасло город. Хотя вылечить всех все же не удалось, почти треть населения погибло. Сам врач смог избежать заражения и через полгода переехать в столицу. Где не только вернул себе прежнюю должность, но и получил весьма почетную награду за изобретение.
+pln Конец.
+end
+
+:endgamechurch
+pln Рано утром главного врача разбудил стук в дверь:
+pln - Город закрывают на карантин, - в дверях стоял монах из местной церкви. - Мы вывозим всех здоровых людей, вам тоже следует поспешить и покинуть город вместе с нами.
+pln Собравшись, врач присоединился к толпе покидающей город. Толпы людей отправились на восток от города. Через несколько дней они прибыли в соседнее поселение. 
+pln 
+pln Таким образом удалось спасти половину населения Вэлнеса. Врач обосновался в новом городе и снова открыл клинику, продолжая помогать страждущим.
+pln Конец.
+end
+
+:endgamehospit
+pln Чума захлестнула Вэлнес, трупы не успевали вывозить с улиц. Но главный врач не сдавался, продолжая держать двери больницы открытми для всех. Всем желающим оказывалось максимально возможный уход и лечение. Только благодаря этому удалось избежать пандемии и распроранение болезни в другие поселения. Хотя городу и удалось уцелеть, но почти половина жителей погибла. К сожелению среди них оказался и главный врач больницы.
+pln 
+pln Спустя несколько лет возле больницы воздвигнут большую статую в память о враче, ценой своей жизни, спасшим город.
+pln Конец.
+end
+
+:endgamegrejoe
+pln Среди ночи раздался громкий и настойчивый стук в дверь. Подскочив от неожиданности с кровати, врач подбежал к двери.
+pln - Просыпайся, док, - за дверью стоял Серый Джо. - Бери только самое необходимое, повозка будет здесь через десять минут.
+pln В попыхах одевшись и собрав чемодан, врач вышел из больницы. У входа его уже ожидал небольшй экипаж, запряженный четырьмя лошадьми. Забравшись внутрь он сел рядом Серым Джо.
+pln - Это твои новые документы, - сказал Джо протягивая конверт. - Мы отвезем тебя в деревню к северу отсюда, там ты сможешь безопасно перебраться в крупный город.
+pln Взяв документы врач посмотрел в окно. Послышался хлесткий удар и экипаж тронулся с места.
+pln 
+pln Через несколько дней во всех газетах страны опубликуют новость о том, что населения города Вэлнеса было практически полностью унесено эпидемией. А в близлежащих городах отмечаются единичные вспышки чумы, что грозило распространению болезни по всему континенту. Главного врача сочли погибшим и власти его более не преследовали. 
+pln Конец.
+end
+
+
+--------------------------Больница-------------
+
+:twhosp
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if count_twhosp=1 then pln Проснувшись, врач вошел в кабинет. На столе лежала куча неразобранных бумаг. Справа от дверей кабинета находится длинный коридор, ведущий в заброшенную лабораторию когда-то принадлежавшей местному алхимику.
+if count_twhosp>1 then pln Огонь в камине потрескивал, согревая пустующую комнату. На столе как всегда лежала куча бумаг.
+
+btn town, Выйти в город
+btn twhpst, Статистика
+btn twhpup, Улучшить больницу
+
+if perlabsend<5000 then btn twhplabs, Пройти в заброшенную лабораторию
+if perlabsend=5000 then btn twhplbuptw, В лабораторию
+
+btn twnextday, Пропустить день
+end
+
+:twhpst
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Уровень больницы - #perlvlhp$.
+pln Общее число коек - #perhpbed$.
+pln Доход в день - #permonyinc$.
+
+if perlvlhp=0 then pln На данный момент больница принимает больных с простыми травмами, ушибами, порезами у нас даже обычных антибиотиков нет. "И это я должен превратить в полноценную больницу?". 
+if perlvlhp=1 then pln Теперь помимо простых травм, полученных в боях, больница принимает пациентов с различными респираторными заболеваниями. 
+if perlvlhp=2 then pln В больнице есть изолятор для инфекционных больных, уровень кишечной инфекции в городе заметно снизился. 
+if perlvlhp=3 then pln Новое хирургическое отделение позволило спасти уйму пациентов. 
+if perlvlhp=4 then pln Купленные антибиотики и проведенная работа в борделе заметно снизили уровень венерических заболеваний среди горожан. 
+if perlvlhp=5 then pln Больница функционирует в полном объеме и выглядит не хуже любой столичной клиники. 
+btn twhosp, Назад
+end
+
+:twhpup
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if perlvlhp<5 then pln Чтобы улучшить работу больницы и повысить доход необходимо провести колоссальную работу. Новый персонал придется нанимать среди местных, никто не пришлет сюда профессиональных врачей.
+if perlvlhp=5 then pln Больница вышла на новый уровень оказания помощи. Теперь она может сравниться с хорошей клиникой в любом другом городе.
+
+btn twhosp, Назад в больницу
+
+if perlvlhp<5 then btn twhpup2, Улучшить больницу
+end
+
+
+
+
+:twhpup2
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Уровень больницы - #perlvlhp$.
+
+if perlvlhp=0 then pln Чтобы получить 1 уровень необходимо:
+if perlvlhp=0 and perthpuptlvlo3=0 then pln Договориться о поставке простейших антибиотиков. "Скорее всего, местный аптекарь сможет помочь с этим".
+if perlvlhp=0 and perthpuptlvlo3=1 then pln Договориться о поставке простейших антибиотиков - выполнено.
+if perlvlhp=0 and perthpuptlvlo1=0 then pln Увеличить количество коек до 20 - необходимо 200 золотых.
+if perlvlhp=0 and perthpuptlvlo1=1 then pln Увеличить количество коек до 20 - выполнено.
+if perlvlhp=0 and perthpuptlvlo2=0 then pln Расширить штат медицинских сестер - 150 золотых.
+if perlvlhp=0 and perthpuptlvlo2=1 then pln Расширить штат медицинских сестер - выполнено.
+
+if perlvlhp=1 then pln Чтобы получить 2 уровень необходимо:
+if perlvlhp=1 and perthpuptlvlt3=0 then pln Снизить уровень заболеваемости кишечной инфекции в городе. Необходимо провести санитарно-просветительную работу в таверне.
+if perlvlhp=1 and perthpuptlvlt3=1 then pln Снизить уровень заболеваемости кишечной инфекции в городе. Необходимо провести санитарно-просветительную работу в таверне - выполнено.
+if perlvlhp=1 and perthpuptlvlt1=0 then pln Построить изолятор для пациентов с инфекционными заболеваниями - необходимо 600 золотых.
+if perlvlhp=1 and perthpuptlvlt1=1 then pln Построить изолятор для пациентов с инфекционными заболеваниями - выполнено.
+if perlvlhp=1 and perthpuptlvlt2=0 then pln Нанять дополнительный персонал в инфекционное отделение - 450 золотых.
+if perlvlhp=1 and perthpuptlvlt2=1 then pln Нанять дополнительный персонал в инфекционное отделение - выполнено.
+
+if perlvlhp=2 then pln Чтобы получить 3 уровень необходимо:
+if perlvlhp=2 and perthpuptlvlth1=0 then pln Построить хирургическое отделение - необходимо 1000 золотых.
+if perlvlhp=2 and perthpuptlvlth1=1 then pln Построить хирургическое отделение - выполнено.
+if perlvlhp=2 and perthpuptlvlth2=0 then pln Увеличить количество коек до 50 - необходимо 500 золотых.
+if perlvlhp=2 and perthpuptlvlth2=1 then pln Увеличить количество коек до 50 - выполнено.
+if perlvlhp=2 and perthpuptlvlth3=0 then pln Закупить хирургическое оборудование - 750 золотых.
+if perlvlhp=2 and perthpuptlvlth3=1 then pln Закупить хирургическое оборудование - сделано.
+
+if perlvlhp=3 then pln Чтобы получить 4 уровень необходимо:
+if perlvlhp=3 and perthpuptlvlf3=0 then pln Снизить уровень венерических заболеваний в городе. "Думаю, об этом необходимо поговорить с хозяйкой борделя".
+if perlvlhp=3 and perthpuptlvlf3=1 then pln Снизить уровень венерических заболеваний в городе - выполнено.
+if perlvlhp=3 and perthpuptlvlf1=0 then pln Увеличить количество коек до 70 - необходимо 1050 золотых.
+if perlvlhp=3 and perthpuptlvlf1=1 then pln Увеличить количество коек до 70 - выполнено.
+if perlvlhp=3 and perthpuptlvlf2=0 then pln Закупить новые антибиотики - 1400 золотых.
+if perlvlhp=3 and perthpuptlvlf2=1 then pln Закупить новые антибиотики - выполнено.
+
+if perlvlhp=4 then pln Чтобы получить 5 уровень необходимо:
+if perlvlhp=4 then pln Вложить #perhospiend$/13000 золотых в развитие больницы.
+
+if perlvlhp=5 then pln Достигнут максимальный уровень больницы.
+
+btn twhpup, Назад
+
+if perlvlhp=0 and permoney>=200 and perthpuptlvlo1=0 then btn thpuptlvlo1, Увеличить количество койко-мест
+if perlvlhp=0 and permoney>=150 and perthpuptlvlo2=0 then btn thpuptlvlo2, Нанять медсестер
+if perlvlhp=0 and perhluploQ=1 and perthpuptlvlo3=0 then btn thpuptlvlo3, Подписать договор на поставку антибиотиков
+
+if perlvlhp=1 and permoney>=600 and perthpuptlvlt1=0 then btn thpuptlvlt1, Построить изолятор
+if perlvlhp=1 and permoney>=450 and perthpuptlvlt2=0 then btn thpuptlvlt2, Нанять персонал
+if perlvlhp=1 and perhlupltQ=1 and perthpuptlvlt3=0 then btn thpuptlvlt3, Написать отчет о проведенной просветительной работе
+
+if perlvlhp=2 and permoney>=1000 and perthpuptlvlth1=0 then btn thpuptlvlth1, Построить новое отделение
+if perlvlhp=2 and permoney>=500 and perthpuptlvlth2=0 then btn thpuptlvlth2, Увеличить количество койко-мест в больнице
+if perlvlhp=2 and permoney>=750 and perthpuptlvlth3=0 then btn thpuptlvlth3, Закупить оборудование
+
+if perlvlhp=3 and permoney>=1050 and perthpuptlvlf1=0 then btn thpuptlvlf1, Увеличить количество койко-мест в больнице
+if perlvlhp=3 and permoney>=1400 and perthpuptlvlf2=0 then btn thpuptlvlf2, Закупить антибиотики
+if perlvlhp=3 and perhluplfQ=1 and perthpuptlvlf3=0 then btn thpuptlvlf3, Написать отчет о снижении заболеваемости венерическими заболеваниями
+
+if perlvlhp=4 then btn thpuptlvlff1, Финансировать развитие больницы
+
+end
+
+
+:thpuptlvlo1
+perthpuptlvlo1=1
+permoney=permoney-200
+perhpbed=20
+if perthpuptlvlo1=1 and perthpuptlvlo2=1 and perthpuptlvlo3=1 then perlvlhp=1
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Общее количество больничных коек увеличено до 20.
+if perlvlhp=1 then pln Уровень больницы повышен!
+if perlvlhp=1 then permonyinc=150
+btn twhpup2, Назад
+end
+
+:thpuptlvlo2
+perthpuptlvlo2=1
+permoney=permoney-150
+if perthpuptlvlo1=1 and perthpuptlvlo2=1 and perthpuptlvlo3=1 then perlvlhp=1
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Штат медсестер расширен до необходимого уровня.
+if perlvlhp=1 then pln Уровень больницы повышен!
+if perlvlhp=1 then permonyinc=150
+btn twhpup2, Назад
+end
+
+:thpuptlvlo3
+perthpuptlvlo3=1
+if perthpuptlvlo1=1 and perthpuptlvlo2=1 and perthpuptlvlo3=1 then perlvlhp=1
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Договор на поставку основных антибиотиков подписан.
+if perlvlhp=1 then pln Уровень больницы повышен!
+if perlvlhp=1 then permonyinc=150
+btn twhpup2, Назад
+end
+
+
+
+:thpuptlvlt1
+perthpuptlvlt1=1
+permoney=permoney-600
+if perthpuptlvlt1=1 and perthpuptlvlt2=1 and perthpuptlvlt3=1 then perlvlhp=2
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Изолятор построен.
+if perlvlhp=2 then pln Уровень больницы повышен!
+if perlvlhp=2 then permonyinc=250
+btn twhpup2, Назад
+end
+
+:thpuptlvlt2
+perthpuptlvlt2=1
+permoney=permoney-450
+if perthpuptlvlt1=1 and perthpuptlvlt2=1 and perthpuptlvlt3=1 then perlvlhp=2
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Инфекционное отделение укомплектовано персоналом.
+if perlvlhp=2 then pln Уровень больницы повышен!
+if perlvlhp=2 then permonyinc=250
+btn twhpup2, Назад
+end
+
+:thpuptlvlt3
+perthpuptlvlt3=1
+if perthpuptlvlt1=1 and perthpuptlvlt2=1 and perthpuptlvlt3=1 then perlvlhp=2
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Отчет завершен. Уровень заболеваемости кишечными инфекциями снижен.
+if perlvlhp=2 then pln Уровень больницы повышен!
+if perlvlhp=2 then permonyinc=250
+btn twhpup2, Назад
+end
+
+
+
+:thpuptlvlth1
+perthpuptlvlth1=1
+permoney=permoney-1000
+if perthpuptlvlth1=1 and perthpuptlvlth2=1 and perthpuptlvlth3=1 then perlvlhp=3
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Хирургическое отделение построено.
+if perlvlhp=3 then pln Уровень больницы повышен!
+if perlvlhp=3 then permonyinc=350
+btn twhpup2, Назад
+end
+
+:thpuptlvlth2
+perthpuptlvlth2=1
+permoney=permoney-500
+perhpbed=50
+if perthpuptlvlth1=1 and perthpuptlvlth2=1 and perthpuptlvlth3=1 then perlvlhp=3
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Общее количество больничных коек увеличено до 50.
+if perlvlhp=3 then pln Уровень больницы повышен!
+if perlvlhp=3 then permonyinc=350
+btn twhpup2, Назад
+end
+
+:thpuptlvlth3
+perthpuptlvlth3=1
+permoney=permoney-750
+if perthpuptlvlth1=1 and perthpuptlvlth2=1 and perthpuptlvlth3=1 then perlvlhp=3
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Новое хирургическое оборудование закуплено.
+if perlvlhp=3 then pln Уровень больницы повышен!
+if perlvlhp=3 then permonyinc=350
+btn twhpup2, Назад
+end
+
+
+
+:thpuptlvlf1
+perthpuptlvlf1=1
+permoney=permoney-1050
+perhpbed=70
+if perthpuptlvlf1=1 and perthpuptlvlf2=1 and perthpuptlvlf3=1 then perlvlhp=4
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Общее количество больничных коек увеличено до 70.
+if perlvlhp=4 then pln Уровень больницы повышен!
+if perlvlhp=4 then permonyinc=500
+btn twhpup2, Назад
+end
+
+:thpuptlvlf2
+perthpuptlvlf2=1
+permoney=permoney-1400
+if perthpuptlvlf1=1 and perthpuptlvlf2=1 and perthpuptlvlf3=1 then perlvlhp=4
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Партия современных антибиотиков закуплена.
+if perlvlhp=4 then pln Уровень больницы повышен!
+if perlvlhp=4 then permonyinc=500
+btn twhpup2, Назад
+end
+
+:thpuptlvlf3
+perthpuptlvlf3=1
+if perthpuptlvlf1=1 and perthpuptlvlf2=1 and perthpuptlvlf3=1 then perlvlhp=4
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Отчет завершен. Уровень заболеваемости венерическими инфекциями снижен.
+if perlvlhp=4 then pln Уровень больницы повышен!
+if perlvlhp=4 then permonyinc=500
+btn twhpup2, Назад
+end
+
+
+:thpuptlvlff1
+perhowmuch=0
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln На какую сумму следует профинансировать развитие больницы?
+input perhowmuch
+if perhowmuch<=0 then perhowmuch=0
+
+if perhowmuch>permoney then pln Недостаточно денег.
+if perhowmuch<=permoney then pln Больничный фонд увеличился на #perhowmuch$ золотых.
+
+if perhowmuch<=permoney then perhospiend=perhospiend+#perhowmuch$
+if perhowmuch<=permoney then permoney=permoney-#perhowmuch$
+
+if perhospiend>13000 then perhospiend=13000
+if perhospiend=13000 then perlvlhp=5
+if perlvlhp=5 then permonyinc=600
+
+btn twhpup2, Назад
+end
+
+
+
+:twnextday
+perdays=perdays+1
+if perdays=60 then goto endgameall
+
+permoney=permoney+permonyinc
+if perdays=5 then goto event1
+if perdays=7 then goto event2
+if perdays=25 then goto event4
+if perdays=30 then goto event3
+if perdays=50 then goto event5
+
+
+pln Пройдя в спальную комнату, врач прилег на кровать и вскоре уснул.
+pln Наступил следующий день. Доход от приема пациентов начислен.
+btn twhosp, Далее
+end
+
+:event1
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln - Господин доктор, вам пришла телеграмма. - Неожиданный стук в дверь разбудил врача рано утром.
+btn event1.2, - Спасибо, сестра.
+end
+
+:event1.2
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Медсестра поспешила удалиться, а врач остался стоять с письмом в руках. Развернув конверт, он пробежался глазами по тексту. Телеграмму прислал друг, освободивший врача из темницы. Он спрашивал, как прошла поездка и удачно ли устроился на новом месте, а также сообщил о том, что как можно скорее постарается решить вопрос с переводом в больницу другого города. 
+pln Написав ответное послание, врач решил заняться насущными делами.
+btn twhosp, Далее
+end
+
+:event2
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln - Рано утром приходил человек просил передать вам это, - постучавшись, вошла в кабинет медсестра. 
+pln В ее руках был небольшой конверт.
+btn event2.2, - Благодарю.
+end
+
+:event2.2
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Внутри конверта оказалась небольшая записка: "Если хотите покинуть город как можно скорее и без лишнего шума - спросите в таверне Серого Джо". Положив ее на стол к остальным бумагам, врач задумался: "Интересно, кто это и что он может предложить?".
+btn twhosp, Далее
+end
+
+:event3
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Рано утром, без стука, в кабинет ворвалась старшая медсестра, широко распахнув двери:
+pln - Доктор! Ужасные новости!
+pln - Что случилось? Опять кто-то из гильдии приключений смертельно ранен? - Вскочив со стула, спросил врач.
+pln - Чума, доктор, чума в городе! - едва не крича, заметалась по комнате медсестра.
+btn event3.2, Успокоить сестру
+end
+
+:event3.2
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Спустя некоторое время и нескольких чашек чая, врачу, хоть и с трудом, удалось успокоить медсестру. Она рассказала, что пару дней назад на окраине города обнаружили первого зараженного чумой.
+pln - Вы как хотите, но я сегодня же вечером уезжаю из города, - взволновано сообщила сестра. - Я уже видела такое, через месяц здесь не останется ни одного живого человека. И вам, доктор, следовало бы сделать тоже самое.
+pln "И как же мне это сделать, если стража ни за что не выпустит меня отсюда просто так. Возможно, мне стоит поговорить с кем-нибудь в гильдии искателей приключений, они все-таки ищут лекарство от всех болезней. Надеюсь, они уже близки к местонахождению источника". Попрощавшись с медсестрой, главный врач вернулся за стол, обдумывая свое положение.
+btn twhosp, Далее
+end
+
+:event4
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Проснувшись, врач заметил на столе конверт с красной печатью.
+btn event4.2, Открыть
+end
+
+:event4.2
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Это была новая телеграмма от друга из столицы: "К сожалению, вытащить тебя раньше чем через полгода я не смогу. Все министерство против тебя, видимо ты успел досадить не только мэру. Продержись еще шесть месяцев и ты будешь свободен. И не делай глупостей, не пытайся покинуть город самостоятельно, в таком случае виселицы тебе точно не избежать".
+btn twhosp, Далее
+end
+
+:event5
+pln Встав с утра, врач подошел к окну. В городе царил хаос. Чума подбиралась все ближе к центру. Дальние районы города почти полностью опустели. "Надо убираться отсюда. Город продержится еще максимум неделю".
+btn twhosp, Далее
+end
+
+
+--------------------------Город-------------
+
+:town
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if count_town=1 then pln Центр города был весьма оживленным. Толпы народу слонялись туда сюда. Большинство из людей были больны или травмированы. Кашель и сочившийся гной из ран - самые мягкие проявления. 
+if count_town=1 then pln Отсюда можно было добраться до таверны, аптеки и гильдии искателей приключений, около которой толпился народ. Также, недалеко располагался местный бордель.
+if count_town>1 then pln Выйдя из больницы, врач направился к центру города.
+
+btn twhosp, В больницу
+btn twtavr, В таверну
+
+if perdays>=30 then btn twguild, В гильдию искателей приключений
+btn twchur, Церковь
+
+if perlvlhp=3 and perhluplfQ=0 then btn twwhrhouse, Бордель
+btn twpharm, Аптека
+
+if count_twphrmqst>0 and pertwphqstd=0 then btn twforest, В лес
+
+end
+
+
+--------------------------Бордель-------------
+
+:twwhrhouse
+pln Бордель представлял собой небольшое помещение, окутанное полумраком. Вокруг слонялись полуголые девицы, играла приятная музыка.
+btn town, В город
+btn whquest, Спросить хозяйку борделя
+end
+
+:whquest
+pln Хозяйкой заведения оказалась невысокая дама лет сорока со светлыми длинными волосами. Предложив доктору присесть, она расположилась в мягком кресле, возле журнального столика. Расспросив, ее врач выяснил что практические каждая вторая работающая здесь девушка чем-либо больна.
+pln - Мы и сами понимаем, что необходимо решать эту проблему, но лишних денег нет. - Медленно сказала хозяйка. - Ведь лечение сейчас очень недешево.
+pln - Можно хотя бы предотвратить распространение заразы, закупить презервативы, например. - Предложил врач.
+pln - Или же вы можете провести медосмотр девочек бесплатно, - хозяйка медленно провела пальцем по колену врача. - Или почти бесплатно.
+pln Представив объем работы и гонорейные прелести, врач непроизвольно переставил ноги к выходу. Заметив реакцию собеседника, хозяйка сказала:
+pln - Предлагаю довериться удаче - обыграете меня в блэкджек - я решаю проблему, если проиграете - ваша клиника оплачивает лечение.
+pln С этими словами она достала из-под стола колоду карт.
+btn whqstgame, Сыграть в блэкджек
+end
+
+:whqstgame
+if count_whqstgame=1 then pln Чтобы выиграть необходимо набрать больше очков чем у противника, но не больше 21.
+if count_whqstgame>1 then pln Еще карту или достаточно?
+
+pln Количество очков - #perwhqstcardcs$.
+
+btn whqstgame2, Взять карту
+if count_whqstgame>1 then btn whqstgmend, Достаточно
+end
+
+:whqstgame2
+perwhqstcardcs2 = rnd13
+if perwhqstcardcs2=1 then perwhqstcardcs=perwhqstcardcs+2 && perwhqstgwhccard="Врач взял карту из колоды - это двойка червей. Счет увеличен на 2."
+if perwhqstcardcs2=2 then perwhqstcardcs=perwhqstcardcs+3 && perwhqstgwhccard="Врач взял карту из колоды - это тройка пик. Счет увеличен на 3."
+if perwhqstcardcs2=3 then perwhqstcardcs=perwhqstcardcs+4 && perwhqstgwhccard="Врач взял карту из колоды - это четверка бубен. Счет увеличен на 4."
+if perwhqstcardcs2=4 then perwhqstcardcs=perwhqstcardcs+5 && perwhqstgwhccard="Врач взял карту из колоды - это пятерка треф. Счет увеличен на 5."
+if perwhqstcardcs2=5 then perwhqstcardcs=perwhqstcardcs+6 && perwhqstgwhccard="Врач взял карту из колоды - это шестерка червей. Счет увеличен на 6."
+if perwhqstcardcs2=6 then perwhqstcardcs=perwhqstcardcs+7 && perwhqstgwhccard="Врач взял карту из колоды - это семерка пик. Счет увеличен на 7."
+if perwhqstcardcs2=7 then perwhqstcardcs=perwhqstcardcs+8 && perwhqstgwhccard="Врач взял карту из колоды - это восьмерка бубен. Счет увеличен на 8."
+if perwhqstcardcs2=8 then perwhqstcardcs=perwhqstcardcs+9 && perwhqstgwhccard="Врач взял карту из колоды - это девятка треф. Счет увеличен на 9."
+if perwhqstcardcs2=9 then perwhqstcardcs=perwhqstcardcs+10 && perwhqstgwhccard="Врач взял карту из колоды - это десятка червей. Счет увеличен на 10."
+if perwhqstcardcs2=10 then perwhqstcardcs=perwhqstcardcs+10 && perwhqstgwhccard="Врач взял карту из колоды - это валет пик. Счет увеличен на 10."
+if perwhqstcardcs2=11 then perwhqstcardcs=perwhqstcardcs+10 && perwhqstgwhccard="Врач взял карту из колоды - это дама треф. Счет увеличен на 10."
+if perwhqstcardcs2=12 then perwhqstcardcs=perwhqstcardcs+10 && perwhqstgwhccard="Врач взял карту из колоды - это король бубен. Счет увеличен на 10."
+if perwhqstcardcs2=13 then perwhqstcardcs=perwhqstcardcs+11 && perwhqstgwhccard="Врач взял карту из колоды - это туз червей. Счет увеличен на 11."
+
+pln Хозяйка борделя медленно протягивает колоду для врача, затем она берет одну карту себе.
+pln #%perwhqstgwhccard$
+pln Количество очков - #perwhqstcardcs$.
+if perwhqstcardcs>21 then pln Перебор!
+if perwhqstcardcs<=21 then btn whqstgame, Далее
+if perwhqstcardcs>21 then btn whqstgmfail, Далее
+end
+
+:whqstgmfail
+perhluplfQ=1
+//pln Количество очков - #perwhqstcardcs$.
+pln Набрав больше 21, врач проигрывает. Теперь ему предстоит провести медосмотр и лечение для всех девушек бесплатно. Но все же проблема с венерическими заболеваниями будет решена.
+btn town, Уйти из борделя
+end
+
+:whqstgmend
+perhluplfQ=1
+
+perwhqstgdllrcard2 = rnd10
+
+if perwhqstgdllrcard2=1 then perwhqstgdllrcard=17
+if perwhqstgdllrcard2=2 then perwhqstgdllrcard=18
+if perwhqstgdllrcard2=3 then perwhqstgdllrcard=19
+if perwhqstgdllrcard2=4 then perwhqstgdllrcard=20
+if perwhqstgdllrcard2=5 then perwhqstgdllrcard=21
+if perwhqstgdllrcard2=6 then perwhqstgdllrcard=14
+if perwhqstgdllrcard2=7 then perwhqstgdllrcard=15
+if perwhqstgdllrcard2=8 then perwhqstgdllrcard=16
+if perwhqstgdllrcard2=9 then perwhqstgdllrcard=16
+if perwhqstgdllrcard2=10 then perwhqstgdllrcard=16
+
+if perwhqstcardcs=perwhqstgdllrcard then perwhqstgdllrcard=perwhqstgdllrcard-1
+
+pln Количество очков - #perwhqstcardcs$.
+pln "Достаточно", произносит врач, и хозяйка раскрывает свои карты. Ее счет - #perwhqstgdllrcard$.
+
+if perwhqstcardcs<perwhqstgdllrcard then pln Так как хозяйка набрала больше, врач проигрывает. Теперь ему предстоит провести медосмотр и лечение для всех девушек бесплатно. Но все же проблема с венерическими заболеваниями будет решена.
+
+if perwhqstcardcs>perwhqstgdllrcard then pln Так как врач набрал больше очков, чем хозяйка борделя, он выигрывает. Теперь хозяйке предстоит самой решить проблему с венерическими заболеваниями.
+
+btn town, Уйти из борделя
+end
+
+
+
+--------------------------Лес-------------
+
+:twforest
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if count_twforest=1 then pln Достаточно углубившись в лес, врач разбил небольшой лагерь возле старого дуба.
+if count_twforest>1 then pln Врач вернулся в лагерь. 
+if pertwphqstd=1 then pln Задание выполнено, все пикси пойманы.
+
+btn town, Вернуться в город
+if pertwphqstd=0 and perforstbaittwo=0 then btn twforest2, Поставить ловушку
+if pertwphqstd=0 and perforstbaittwo=1 then btn frstwait, Подождать и проверить ловушку
+end
+
+
+:frstwait
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Выждав некоторое время, врач отправился проверять расставленную ловушку.
+if perfrstbaitbld=1 and perfrstbaitcho=1 then pln Поймана красная пикси!
+if perfrstbaitbld=1 and perfrstbaitcho=1 then perfrstredpwasctch=1
+if perfrstbaitbld=1 and perfrstbaitflw=1 then pln Поймана желтая пикси!
+if perfrstbaitbld=1 and perfrstbaitflw=1 then perfrstyelpwasctch=1
+if perfrstbaitflw=1 and perfrstbaitcho=1 then pln Поймана зеленая пикси!
+if perfrstbaitflw=1 and perfrstbaitcho=1 then perfrstgrnpwasctch=1
+
+if perfrstredpwasctch=1 and perfrstyelpwasctch=1 and perfrstgrnpwasctch=1 then pertwphqstd=1
+
+perfrstbaitbld=0
+perfrstbaitflw=0
+perfrstbaitcho=0
+perforstbaitone=0
+perforstbaittwo=0
+
+btn twforest, В лагерь
+end
+
+
+:twforest2
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if perforstbaitone=0 then pln Какую вещь положить в ловушку?
+if perforstbaitone=1 and perforstbaittwo=0 then pln Что еще добавить в ловушку?
+if perforstbaittwo=1 then pln Все готово, теперь необходимо немного подождать.
+
+if perfrstbaitbld=0 and perforstbaittwo=0 then btn frstputbld, Кровь
+if perfrstbaitflw=0 and perforstbaittwo=0 then btn frstputflw, Цветок
+if perfrstbaitcho=0 and perforstbaittwo=0 then btn frstputcho, Шоколад
+if perforstbaittwo=1 then btn twforest, Вернуться в лагерь
+end
+
+:frstputbld
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if perforstbaitone=1 then perforstbaittwo=1
+perforstbaitone=1
+perfrstbaitbld=1
+pln Врач положил кровь в ловушку.
+btn twforest2, Назад
+end
+
+:frstputflw
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if perforstbaitone=1 then perforstbaittwo=1
+perforstbaitone=1
+perfrstbaitflw=1
+pln Врач положил цветок в ловушку.
+btn twforest2, Назад
+end
+
+:frstputcho
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if perforstbaitone=1 then perforstbaittwo=1
+perforstbaitone=1
+perfrstbaitcho=1
+pln Врач положил шоколад в ловушку.
+btn twforest2, Назад
+end
+
+
+--------------------------Аптека-------------
+
+:twpharm
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if count_twpharm=1 then pln Войдя в здание, врач осмотрелся. На полках стояли самые необходимые лекарства и травы. Аптекарь стоял за прилавком, листая толстую книгу.
+if count_twpharm>1 then pln Ничем не примечательная провинциальная аптека.
+
+btn town, В город
+if count_twhpup2>0 and count_twphrmqst=0 then btn twphrmqst, Поговорить о поставке антибиотиков
+
+if pertwphqstd=1 and count_twphrmqstdon=0 then btn twphrmqstdon, Отдать пойманных пикси
+end
+
+:twphrmqst
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Подойдя к фармацевту, врач рассказал ему о проблемах больницы с антибиотиками.
+pln - Я с радостью помогу вам, но за небольшую услугу, - ответил аптекарь. - Сейчас я работаю над одним чудо-лекарством от эректильной дисфункции.
+pln - Такое бы и мне не помешало, - задумчиво произнес врач. - В смысле, моим пациентам.
+pln - Но для экспериментов мне необходим очень редкий ингредиент - пыльца пикси.
+pln - И где же ее достать?
+pln - В лесу рядом с городом. В нем полно разных магических существ. Если поймаете для меня трех разных пикси, я обеспечу вас антибиотиками на целый год.
+pln Фармацевт нагнулся под прилавок и достал оттуда  специальную ловушку. После чего напомнил, что необходимо поймать трех пикси разного вида, комбинируя различные приманки между собой.
+btn twpharm, - Хорошо
+end
+
+:twphrmqstdon
+perhluploQ=1
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Задание выполнено. Теперь аптека будет поставлять больницы антибиотики в течение года.
+btn twpharm, Далее
+end
+
+
+
+--------------------------Таверна-------------
+
+:twtavr
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Таверна была полна народу. Отовсюду слышались крики и смех, заглушающие играющую музыку. Владелец заведения стоял за стойкой, разливая пиво по стаканам.
+
+btn town, В город
+if count_twtvgrdj=0 and perdays>=7 then btn twtvgrdj, Спросить Серого Джо
+if count_twtvgrdj>0 then btn twtvgrdj2, Подсесть к Серому Джо
+
+if perlvlhp=1 and perhlupltQ=0 and count_twtvquest=0 then btn twtvquest, Поговорить с хозяином насчет кишечной инфекции
+if perlvlhp=1 and perhlupltQ=0 and count_twtvquest>0 then btn twtvqstfightpre, Спуститься в подвал
+
+end
+
+:twtvquest
+pertvqstfgtfirstf=0
+perherhp=250
+perherhpmax=250
+perenhp=150
+perenhpmax=150
+if count_twtvquest=1 then pln Подойдя к стойке, врач объяснил хозяину, зачем он здесь. И то, что необходимо повысить санитарное состояние таверны и проинспектировать кухню.
+if count_twtvquest=1 then pln - На кухне у нас все идеально, даже пиццу в перчатках готовим, - убедительно сказал хозяин. - Даже не знаю чем вам помочь.
+if count_twtvquest=1 then pln - Но тогда откуда такой высокий уровень кишечной инфекции? Ваше заведение единственное в городе.
+if count_twtvquest=1 then pln - А это, так крысы в подвале же, - невинно произнес хозяин, - где продукты лежат. 
+if count_twtvquest=1 then pln - Что? Крысы?
+if count_twtvquest=1 then pln - Ага, еще полгода назад я подал запрос в гильдию искателей приключений, но сами понимаете. Такое задание никто не берет ведь за него не получишь много золота, да и опыта не наберешься.
+if count_twtvquest=1 then pln - И много там крыс? - Приметив здоровенную метлу в углу комнаты, спросил врач.
+if count_twtvquest=1 then pln - Парочка, не больше.
+if count_twtvquest=1 then pln "Похоже, придется разбираться самому. Гильдию ждать бесполезно, а трактирщику совсем фиолетово".
+
+btn twtvqstfight, Спуститься в подвал
+end
+
+:twtvqstfightpre
+pertvqstfgtfirstf=0
+perherhp=250
+perherhpmax=250
+perenhp=150
+perenhpmax=150
+
+goto twtvqstfight
+end
+
+:tvfgtffail
+pln <div style="float: left; width: 50%;">Врач</div><div align="right" style="float: right; width: 50%;">Стая крыс</div><div class="clear">
+pln <div style="float: left; width: 50%;">Здоровье - #perherhp$/#perherhpmax$</div><div align="right" style="float: right; width: 50%;">Здоровье - #perenhp$/#perenhpmax$</div><div class="clear">
+pln Крысы одерживают верх над врачом, который едва успевает сбежать.
+btn twtavr, Сбежать из подвала
+end
+
+:tvfgtfwin
+perhlupltQ=1
+pln <div style="float: left; width: 50%;">Врач</div><div align="right" style="float: right; width: 50%;">Стая крыс</div><div class="clear">
+pln <div style="float: left; width: 50%;">Здоровье - #perherhp$/#perherhpmax$</div><div align="right" style="float: right; width: 50%;">Здоровье - #perenhp$/#perenhpmax$</div><div class="clear">
+pln Врач побеждает крыс, выгоняя их метлой из подвала на улицу. Задание выполнено!
+btn twtavr, Назад в таверну
+end
+
+:twtvqstfight
+if perherhp=0 then goto tvfgtffail
+if perenhp=0 then goto tvfgtfwin
+if pertvqstfgtfirstf=0 then pertvfghtsprhit=0
+
+pln <div style="float: left; width: 50%;">Врач</div><div align="right" style="float: right; width: 50%;">Стая крыс</div><div class="clear">
+pln <div style="float: left; width: 50%;">Здоровье - #perherhp$/#perherhpmax$</div><div align="right" style="float: right; width: 50%;">Здоровье - #perenhp$/#perenhpmax$</div><div class="clear">
+
+if pertvqstfgtfirstf=1 then pertvfghtsprhit = rnd3
+
+if pertvqstfgtfirstf=0 then pln Едва врач спустился в подвал, его окружает стая крыс. Приняв оборонительную позу с метлой в руках, врач приготовился защищаться.
+if pertvqstfgtfirstf=1 and pertvfghtsprhit>1 then pln Вооруженный метлой врач стоит перед стаей крыс.
+if pertvqstfgtfirstf=1 and pertvfghtsprhit=1 then pln Вооруженный метлой врач стоит перед стаей крыс. Несколько крыс обошли сзади и готовятся ударить в спину. Необходимо защищаться. (Господи, что я пишу).
+
+btn tvrqfgtattack, Атаковать
+btn tvrqfgtdefend, Защищаться
+btn tvrqfgtdodge, Уклоняться
+end
+
+:tvrqfgtattack
+pertvqstfgtfirstf=1
+perhwmchattackhero1 = rnd5
+if perhwmchattackhero1=1 then perhwmchattackhero=15
+if perhwmchattackhero1=2 then perhwmchattackhero=17
+if perhwmchattackhero1=3 then perhwmchattackhero=18
+if perhwmchattackhero1=4 then perhwmchattackhero=20
+if perhwmchattackhero1=5 then perhwmchattackhero=14
+perhwmchattackenemy1 = rnd5
+if perhwmchattackenemy1=1 then perhwmchattackenemy=15
+if perhwmchattackenemy1=2 then perhwmchattackenemy=17
+if perhwmchattackenemy1=3 then perhwmchattackenemy=18
+if perhwmchattackenemy1=4 then perhwmchattackenemy=20
+if perhwmchattackenemy1=5 then perhwmchattackenemy=14
+
+if pertvfghtsprhit=1 then perhwmchattackenemy=50
+
+perherhp=perherhp-perhwmchattackenemy
+if perherhp<0 then perherhp=0
+perenhp=perenhp-perhwmchattackhero
+if perenhp<0 then perenhp=0
+
+pln <div style="float: left; width: 50%;">Врач</div><div align="right" style="float: right; width: 50%;">Стая крыс</div><div class="clear">
+pln <div style="float: left; width: 50%;">Здоровье - #perherhp$/#perherhpmax$</div><div align="right" style="float: right; width: 50%;">Здоровье - #perenhp$/#perenhpmax$</div><div class="clear">
+if pertvfghtsprhit>1 or pertvfghtsprhit=0 then pln Ударив метлой одну из крыс, врач наносит #perhwmchattackhero$ ед. урона, крысы атакуют в ответ и наносят #perhwmchattackenemy$ ед. урона.
+if pertvfghtsprhit=1 then pln Ударив метлой одну из крыс, врач наносит #perhwmchattackhero$ ед. урона, крысы наносят удар в спину, причиняя #perhwmchattackenemy$ ед. урона.
+
+btn twtvqstfight, Далее
+end
+
+:tvrqfgtdefend
+pertvqstfgtfirstf=1
+perhwmchattackenemy1 = rnd5
+if perhwmchattackenemy1=1 then perhwmchattackenemy=5
+if perhwmchattackenemy1=2 then perhwmchattackenemy=7
+if perhwmchattackenemy1=3 then perhwmchattackenemy=8
+if perhwmchattackenemy1=4 then perhwmchattackenemy=10
+if perhwmchattackenemy1=5 then perhwmchattackenemy=4
+
+if pertvfghtsprhit=1 then perhwmchattackenemy=10
+
+perherhp=perherhp-perhwmchattackenemy
+if perherhp<0 then perherhp=0
+
+pln <div style="float: left; width: 50%;">Врач</div><div align="right" style="float: right; width: 50%;">Стая крыс</div><div class="clear">
+pln <div style="float: left; width: 50%;">Здоровье - #perherhp$/#perherhpmax$</div><div align="right" style="float: right; width: 50%;">Здоровье - #perenhp$/#perenhpmax$</div><div class="clear">
+if pertvfghtsprhit>1 or pertvfghtsprhit=0 then pln Врач защищается, блокируя часть урона. Крысы атакуют и наносят #perhwmchattackenemy$ ед. урона.
+if pertvfghtsprhit=1 then pln Врач защищается, блокируя часть урона. Крысы наносят удар в спину, причиняя #perhwmchattackenemy$ ед. урона.
+
+btn twtvqstfight, Далее
+end
+
+:tvrqfgtdodge
+pertvqstfgtfirstf=1
+perhwmchattackenemy1 = rnd5
+if perhwmchattackenemy1=1 then perhwmchattackenemy=15
+if perhwmchattackenemy1=2 then perhwmchattackenemy=17
+if perhwmchattackenemy1=3 then perhwmchattackenemy=18
+if perhwmchattackenemy1=4 then perhwmchattackenemy=20
+if perhwmchattackenemy1=5 then perhwmchattackenemy=14
+
+if pertvfghtsprhit=1 then perhwmchattackenemy=50
+
+pertvfhertrdod = rnd2
+
+if pertvfhertrdod=1 then perherhp=perherhp-perhwmchattackenemy
+if perherhp<0 then perherhp=0
+
+pln <div style="float: left; width: 50%;">Врач</div><div align="right" style="float: right; width: 50%;">Стая крыс</div><div class="clear">
+pln <div style="float: left; width: 50%;">Здоровье - #perherhp$/#perherhpmax$</div><div align="right" style="float: right; width: 50%;">Здоровье - #perenhp$/#perenhpmax$</div><div class="clear">
+if pertvfhertrdod=1 and pertvfghtsprhit>1 then pln Попытка уклонения не удалась и крысы наносят #perhwmchattackenemy$ ед. урона.
+if pertvfhertrdod=1 and pertvfghtsprhit=0 then pln Попытка уклонения не удалась и крысы наносят #perhwmchattackenemy$ ед. урона.
+if pertvfhertrdod=1 and pertvfghtsprhit=1 then pln Попытка уклонения не удалась и крысы атакуют в спину, причиняя #perhwmchattackenemy$ ед. урона.
+
+if pertvfhertrdod=2 then pln Врач успешно уклонился от атаки.
+
+btn twtvqstfight, Далее
+end
+
+
+---------------------------------------------
+---------------------------------------------
+---------------------------------------------
+
+
+:twtvgrdj
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Серым Джо оказался немолодой мужчина с седой бородой, сидящий в углу. Подсев к нему, врач спросил, как он может помочь с отъездом из города.
+pln - Я знаю о твоей проблеме, док, - начал Серый Джо. - И вот что предлагаю, у меня есть очень хорошие связи с местными властями, за определенную сумму мы сможем вывести тебя из города. Но деньги потребуются немалые, необходимо подкупить стражу, нанять лошадей, подмазать кого надо сверху и лично мне небольшую сумму, конечно.
+pln - Ты местный бандит или что-то типа того?
+pln - В первую очередь я бизнесмен. И мне, как и всем, нужны деньги. Подумай над моим предложением. Если тебя все устроит, можешь приходить в любое время. Сумма большая, так что не обязательно приносить все сразу, можно и по частям.
+btn twtavr, - Я подумаю
+end
+
+:twtvgrdj2
+pertgjwbisrea=60-#perdays$
+if peregoend>12000 then peregoend=12000
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Денег собрано - #peregoend$ из 12000 необходимых.
+if peregoend<12000 then pln Как только наберется нужная сумма, Серый Джо будет готов уезжать из города.
+if peregoend=12000 and pertgjwbisrea>=5 then pln Необходимая сумма набрана. Серый Джо готов к отъезду из города. Повозка будет готова через #pertgjwbisrea$ дней.
+if peregoend=12000 and pertgjwbisrea<=4 then pln Необходимая сумма набрана. Серый Джо готов к отъезду из города. Повозка будет готова через #pertgjwbisrea$ дня.
+
+btn twtavr, В таверну
+if peregoend<12000 then btn twtvupd, Отдать деньги
+end
+
+:twtvupd
+perhowmuch=0
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Сколько денег отдать Серому Джо?
+input perhowmuch
+if perhowmuch<=0 then perhowmuch=0
+
+if perhowmuch>permoney then pln Врач не располагает такой суммой денег.
+if perhowmuch<=permoney then pln #perhowmuch$ золотых отданы Серому Джо.
+
+if perhowmuch<=permoney then peregoend=peregoend+#perhowmuch$
+if perhowmuch<=permoney then permoney=permoney-#perhowmuch$
+btn twtvgrdj2, Назад
+end
+
+
+
+
+
+--------------------------Гильдия-------------
+
+:twguild
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Главный зал гильдии представлял собой огромное помещение, с круглым столом в центре. На нем лежала карта и множество разных свитков. Зал был полон людей. Часть из них искала себе партию для задания, остальные же приходили сюда за наградой.
+btn town, В город
+
+if count_twglcadv=0 then btn twglcadv, Поговорить с главой гильдии
+if count_twglcadv>0 then btn twglcadvdon, Внести деньги в фонд гильдии
+end
+
+:twglcadv
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Глава гильдии был очень рад видеть врача и сразу же предложил поговорить в его кабинете.
+pln - Думаю я знаю, зачем вы здесь, - сказал он. - Чума в городе, и никто ничего не может сделать. Единственная надежда на то, что мы успеем найти источник, прежде чем город будет завален трупами.
+pln - И как продвигаются поиски?
+pln - Очень даже неплохо на самом деле.
+pln "В этом городе всегда есть какое-то "но", кажется, я догадываюсь, что он сейчас скажет" - подумал врач. 
+pln - Но нам не хватает финансирования, - продолжил глава гильдии. - Оружие, снаряжение, оплата искателей и прочее, все это стоит слишком много. А министерство с самого начала не верило в нас. Но сейчас мы на пороге прорыва. Судя по всем признакам, последняя группа искателей подобралась очень близко к источнику. Если мы наберем достаточно денег, то мы сможем продвинуться дальше.
+pln - Это хорошие новости, но чем именно я могу помочь?
+pln - Гильдейский фонд опустошен, мы все будем премного благодарны, если вы поможете с финансированием. 
+btn twguild, - Мне необходимо подумать над этим.
+end
+
+:twglcadvdon
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln На данный момент в фонде - #peradveend$ золотых.
+pln "Каждый золотой пойдет на благое дело. Спасем город вместе!" - гласила надпись над ящиком для пожертвований.
+btn twguild, Назад в гильдию
+btn twglcadvdon2, Внести деньги в фонд
+end
+
+:twglcadvdon2
+perhowmuch=0
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Какую сумму передать в фонд?
+
+input perhowmuch
+if perhowmuch<=0 then perhowmuch=0
+
+if perhowmuch>permoney then pln Врач не располагает такой суммой.
+if perhowmuch<=permoney then pln #perhowmuch$ золотых внесено в фонд гильдии.
+
+if perhowmuch<=permoney then peradveend=peradveend+#perhowmuch$
+if perhowmuch<=permoney then permoney=permoney-#perhowmuch$
+
+if peradveend>=10000 then perenddgameguild=1
+
+btn twglcadvdon, Назад
+end
+
+
+
+--------------------------ЛАБА-------------
+
+:twhplabs
+if perlabsend>5000 then perlabsend=5000
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if perlvlhp<3 then pln Лаборатория была полностью разрушена. Повсюду валялись осколки стекла, разбитые колбы и различный мусор. "Пока рано заниматься всем этим, сначала надо навести порядок в самой больнице", - подумал врач.
+if perlvlhp>=3 then pln Лаборатория была полностью разрушена. Повсюду валялись осколки стекла, разбитые колбы и различный мусор. Потребуется много денег и времени, чтобы привести тут все в порядок. "Собственная лаборатория при больнице может помочь, возможно, мы изобретем какое-нибудь лекарство", - подумал врач.
+if perlvlhp>=3 then pln Сумма необходимая для ремонта лаборатории - #perlabsend$/5000 золотых.
+
+if perlabsend<5000 then btn twhosp, Назад в больницу
+if perlvlhp>=3 and perlabsend<5000 then btn twhplbup, Вложить деньги в ремонт
+if perlabsend=5000 then btn twhplbuptw, Завершить ремонт
+end
+
+
+:twhplbuptw
+if perlabsendtwo>7000 then perlabsendtwo=7000
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if count_twhplbuptw=1 then pln Ремонт завершен. Теперь лаборатория будет работать на благо больницы и города.
+if count_twhplbuptw>1 then pln Персонал лаборатории занят исследованиями.
+
+if perdays>=30 and perlabsendtwo<7000 then pln "Чума на пороге, необходимо все силы бросить на исследования лекарства от этой заразы".
+if perdays>=30 and perlabsendtwo<7000 then pln Сумма необходимая для разработки лекарства - #perlabsendtwo$/7000 золотых.
+if perdays>=30 and perlabsendtwo=7000 then pln Лекарство готово! Осталось только выпустить его в свет и спасти город.
+
+btn twhosp, Назад в больницу
+
+if perlabsendtwo=7000 then btn endgamevacc, Объявить о создании лекарства
+if perdays>=30 and perlabsendtwo<7000 then btn twhlbup2, Финансировать исследования лекарства против чумы
+end
+
+
+:twhlbup2
+perhowmuch=0
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Сколько денег вложить в исследования?
+
+input perhowmuch
+if perhowmuch<=0 then perhowmuch=0
+
+if perhowmuch>permoney then pln Недостаточно денег.
+if perhowmuch<=permoney then pln Исследования лекарства профинансированы на #perhowmuch$ золотых.
+
+if perhowmuch<=permoney then perlabsendtwo=perlabsendtwo+#perhowmuch$
+if perhowmuch<=permoney then permoney=permoney-#perhowmuch$
+btn twhplbuptw, Назад
+end
+
+
+:twhplbup
+perhowmuch=0
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Сколько потратить на ремонт?
+
+input perhowmuch
+if perhowmuch<=0 then perhowmuch=0
+
+if perhowmuch>permoney then pln Недостаточно денег.
+if perhowmuch<=permoney then pln Ремонт профинансирован на #perhowmuch$ золотых.
+
+if perhowmuch<=permoney then perlabsend=perlabsend+#perhowmuch$
+if perhowmuch<=permoney then permoney=permoney-#perhowmuch$
+btn twhplabs, Назад
+
+end
+
+
+
+--------------------------ЦЕРКОВЬ-------------
+
+:twchur
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+if count_twchur=1 then pln Снаружи церковь выглядела намного приличнее большинства зданий в городе. Войдя внутрь, врач увидел несколько монахов занимавшихся своими делами. Один из них, заметив осматривающегося врача, подошел к нему.
+if count_twchur=1 then pln - Вы ведь новый глава нашей больницы? - Спросил монах. - Вы делаете благое дело. Больница давно пустовала, и многие больные находили приют в церкви. Мы делали что могли, но квалифицированной медицинской помощи очень не хватало. 
+if count_twchur=1 then pln - Очень благородно с вашей стороны.
+if count_twchur=1 then pln - Спасибо, к сожалению, в данный момент мы сами нуждаемся в помощи. Денег не хватает даже на ремонт здания. Думаю, такой человек как вы, понимает, насколько важна божья помощь в борьбе с болезнями и найдет пару монет для благого дела.
+if count_twchur=1 then pln "Тратить деньги на благотворительность? Сомнительная идея. Хотя, у них имеются большие связи", - подумал врач.
+if count_twchur=1 then pln - Церковь никогда не оставит в беде своих прихожан, - с этими словами монах оставил врача одного.
+
+
+if count_twchur>1 then pln Внутри церкви было темно, лишь несколько свечей, на высоких канделябрах освещали пространство.
+
+btn town, В город
+btn twcrcmkch, Пожертвовать деньги церкви
+end
+
+:twcrcmkch
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln В сумме врач пожертвовал - #perchurend$ золотых.
+btn twchur, Назад в храм
+btn twcrcmkch2, Пожертвовать деньги церкви
+end
+
+:twcrcmkch2
+perhowmuch=0
+pln День - #perdays$.
+if perdays>=30 then pln Дней до эпидемии - #60-perdays$.
+pln Деньги - #permoney$.
+pln ------------------------------
+pln Какую сумму?
+
+input perhowmuch
+if perhowmuch<=0 then perhowmuch=0
+
+if perhowmuch>permoney then pln Нужно больше золота.
+if perhowmuch<=permoney then pln Врач пожертвовал #perhowmuch$ золота.
+
+if perhowmuch<=permoney then perchurend=perchurend+#perhowmuch$
+if perhowmuch<=permoney then permoney=permoney-#perhowmuch$
+
+if perchurend>=6000 then perenddgamechurch=1
+
+btn twcrcmkch, Назад
+end
+
+
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+ 
