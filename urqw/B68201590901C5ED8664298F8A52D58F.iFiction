@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ifindex version="1.0" xmlns="http://babel.ifarchive.org/protocol/iFiction/">
+	<story>
+		<identification>
+			<ifid>B68201590901C5ED8664298F8A52D58F</ifid>
+			<format>urqw</format>
+		</identification>
+		<bibliographic>
+			<title>Чумной доктор</title>
+			<author>Шушкарт</author>
+			<language>ru</language>
+			<firstpublished>2019-02-24</firstpublished>
+			<genre>Фэнтези</genre>
+			<group>URQ</group>
+			<description>Герой игры - главный врач больницы маленького города, в который попадает против своей воли. Больница приносит небольшую прибыль. Используйте деньги с умом. От этого будет зависеть, что произойдёт с городом и лично с вами.</description>
+		</bibliographic>
+		<contacts>
+			<url>https://urqw.github.io/UrqW/#plague_doctor</url>
+			<authoremail>shushkart@gmail.com</authoremail>
+		</contacts>
+		<colophon>
+			<generator>UrqW Game Template</generator>
+			<originated>2025-09-25</originated>
+		</colophon>
+	</story>
+</ifindex>
