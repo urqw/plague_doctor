@@ -15,12 +15,12 @@
 			<description>Герой игры - главный врач больницы маленького города, в который попадает против своей воли. Больница приносит небольшую прибыль. Используйте деньги с умом. От этого будет зависеть, что произойдёт с городом и лично с вами.</description>
 		</bibliographic>
 		<contacts>
-			<url>https://urqw.github.io/UrqW/#plague_doctor</url>
+			<url>https://urqw.github.io/UrqW/?id=plague_doctor</url>
 			<authoremail>shushkart@gmail.com</authoremail>
 		</contacts>
 		<colophon>
 			<generator>UrqW Game Template</generator>
-			<originated>2025-09-25</originated>
+			<originated>2026-01-09</originated>
 		</colophon>
 	</story>
 </ifindex>
